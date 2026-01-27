@@ -1,0 +1,6 @@
+markets: USA, WSE, LSE, DE, crypto, PL bonds
+refresh: every 60 seconds
+data: entered manually
+interface: web
+backend: Python
+base currency: PLN
