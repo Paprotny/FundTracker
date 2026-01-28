@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from app import crud, models
 from app.database import get_db
 from sqlalchemy import desc
+from app.services.price_service import PriceService
 
 router = APIRouter()
 # GET /assets/{symbol}/price
@@ -46,3 +47,8 @@ def get_latest_prices_endpoint(db: Session = Depends(get_db)):
             })
     
     return results
+
+@router.get("/latest_prices", response_model=list[PriceCacheOut])
+def latest_prices(db: Session = Depends(get_db)):
+    latest_prices = PriceService.get_all_latest_prices(db)
+    return latest_prices

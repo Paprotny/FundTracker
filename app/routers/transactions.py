@@ -20,4 +20,4 @@ def create_transaction(symbol: str, t_in: TransactionCreate, db: Session = Depen
     asset = crud.get_asset(db, symbol)
     if not asset:
         raise HTTPException(status_code=404, detail="Asset not found")
-    return crud.create_transaction(db, asset, t_in.quantity, t_in.price, t_in.date)
+    return crud.create_transaction(db, asset, t_in.quantity, t_in.price, t_in.transaction_type, t_in.date)

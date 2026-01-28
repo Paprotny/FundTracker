@@ -1,0 +1,4 @@
+import yfinance as yf
+
+data = yf.download("KRU.WA", start="2026-01-01", end="2026-01-28", interval="1d")
+print(data)

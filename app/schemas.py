@@ -24,6 +24,7 @@ class AssetOut(AssetBase):
 class TransactionBase(BaseModel):
     quantity: float
     price: float
+    transaction_type: str # buy / sell 
     date: datetime | None = None
 
 class TransactionCreate(TransactionBase):
